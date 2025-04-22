@@ -14,11 +14,9 @@ resource "aws_instance" "Demo" {
 resource "aws_ebs_volume" "Demo-ebs" {
   availability_zone = "ap-south-1a"
   size              = 10
-
   tags = {
     Name = "Demo-ebs"
   }
-
    lifecycle {
     prevent_destroy = false
   }
@@ -45,7 +43,6 @@ resource "aws_eip" "Demo-eip" {
 resource "aws_eip_association" "Demo-eipassociation" {
   instance_id   = aws_instance.Demo.id
   allocation_id = aws_eip.Demo-eip.id
-
    lifecycle {
     prevent_destroy = false
     ignore_changes = [instance_id]

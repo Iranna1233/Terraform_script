@@ -38,7 +38,7 @@ resource "aws_volume_attachment" "Demo-ebs-volume-attachment" {
 
 # # Create Elastic IP for Bastion host
 resource "aws_eip" "Demo-eip" {
-    vpc      = true
+    domain = "vpc"
 }
 
 # Create EIP association for associating EIP to Bastion server ##

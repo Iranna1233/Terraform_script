@@ -10,11 +10,6 @@ resource "aws_instance" "Demo" {
   }
 }
 
-resource "aws_instance" "web-server" {
- ami = "ami-09ba48996007c8b50"
- instance_type  = "t2.small"
-}
-
 # Create EBS Volume for Jenkins server
 resource "aws_ebs_volume" "Demo-ebs" {
   availability_zone = "ap-south-1a"

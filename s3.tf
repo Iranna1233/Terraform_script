@@ -69,8 +69,10 @@ resource "aws_s3_bucket_metric" "enable-metrics-bucket-mw-dev-athena-results" {
   name   = "EntireBucket"
 }
 
-# middleware-dev-object-storage-s3-bucket
-
+# object-storage-s3-bucket
 resource "aws_s3_bucket" "middleware-dev-object-storage-new" {
-  # (resource arguments)
+  bucket = "none"
+  tags = {
+    Enviroment: "dev"
+  }
 }

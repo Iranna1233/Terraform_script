@@ -95,7 +95,7 @@ resource "aws_s3_bucket_versioning" "versioning-middleware-dev-object-storage-ne
 
 
 resource "aws_s3_bucket" "my-middleware-terraform-import" {
-  name = "my-middleware-terraform-import"
+    bucket = "my-middleware-terraform-import"
 }
 
 resource "aws_s3_bucket_versioning" "versioning-my-middleware-terraform-import" {

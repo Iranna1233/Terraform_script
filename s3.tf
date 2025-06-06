@@ -57,12 +57,6 @@ resource "aws_s3_bucket_policy" "mw-dev-athena-resultspolicy" {
 POLICY
 }
  
-resource "aws_s3_bucket_acl" "bucket-acl-mw-dev-athena-results" {
-  bucket = aws_s3_bucket.mw-dev-athena-results.id
-  acl    = "private"
-  depends_on = [aws_s3_bucket_ownership_controls.s3-bucket-acl-ownership-mw-dev-athena-results]
-}
- 
 resource "aws_s3_bucket_ownership_controls" "s3-bucket-acl-ownership-mw-dev-athena-results" {
   bucket = aws_s3_bucket.mw-dev-athena-results.id
   rule {

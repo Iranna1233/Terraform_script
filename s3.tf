@@ -71,8 +71,24 @@ resource "aws_s3_bucket_metric" "enable-metrics-bucket-mw-dev-athena-results" {
 
 # object-storage-s3-bucket
 resource "aws_s3_bucket" "middleware-dev-object-storage-new" {
-  bucket = "none"
+  bucket = "middleware-dev-object-storage-new"
   tags = {
-    Enviroment: "dev"
+    Enviroment: "Development"
+  }
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "bucket-server-middleware-dev-object-storage-new"  {
+  bucket = aws_s3_bucket.middleware-dev-object-storage-new.id
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
+    }
+  }
+}
+
+resource "aws_s3_bucket_versioning" "versioning-middleware-dev-object-storage-new" {
+  bucket = aws_s3_bucket.middleware-dev-object-storage-new.id
+  versioning_configuration {
+    status = "Enabled"
   }
 }
